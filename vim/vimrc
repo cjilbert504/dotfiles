@@ -12,16 +12,17 @@ call plug#end()
 
 let mapleader = "\<space>"
 
-" Split edit your vimrc. Type space, v, r in sequence to trigger
-nmap <leader>vr :sp $MYVIMRC<cr>
+" Edit your vimrc in a new tab. Type space, v, r in sequence to trigger
+nmap <leader>vr :tabe $MYVIMRC<cr>
 
 " Source (reload) your vimrc. Type space, s, o in sequence to trigger
 nmap <leader>so :source $MYVIMRC<cr>
 
-" Set sequence of <space> w to go into window management mode
+" Go into window navigation/management mode. Type space, w to trigger
 nmap <leader>w <C-w>
 
-" Use <space>u or d to move current window up or down in chunks
+" Move cursor up or down respectively in chunks. Type space, u or space, d to
+" trigger
 nmap <leader>u <C-u>
 nmap <leader>d <C-d>
 
