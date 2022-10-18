@@ -9,7 +9,7 @@ syntax on
 call plug#begin()
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'morhetz/gruvbox'
-Plug 'sonph/onehalf', { 'rtp': 'vim' }
+Plug 'NLKNguyen/papercolor-theme'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-rails'
 Plug 'tpope/vim-repeat'
@@ -17,13 +17,13 @@ Plug 'tpope/vim-surround'
 call plug#end()
 
 " gruvbox config
-set bg=dark
-let g:gruvbox_contrast_dark = 'hard'
-autocmd vimenter * ++nested colorscheme gruvbox
+" set bg=dark
+" let g:gruvbox_contrast_dark = 'hard'
+" autocmd vimenter * ++nested colorscheme gruvbox
 
-" onehalflight
-" colorscheme onehalflight
-" let g:airline_theme='onehalfdark'
+" papercolor config
+set background=dark
+colorscheme PaperColor
 
 " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
 let g:ctrlp_user_command = 'ag %s -l --nocolor --hidden -g ""'
