@@ -1,5 +1,10 @@
 bindkey -v
 
+. /usr/local/opt/asdf/libexec/asdf.sh
+
+alias cdcode="cd ~/Desktop/code"
+alias cdwork="cd ~/Desktop/code/work"
+
 # Git related aliases
 alias ga="git add"
 alias gb="git branch"
