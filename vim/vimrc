@@ -53,7 +53,7 @@ nmap <leader>w <C-w>
 nmap <leader>u <C-u>
 nmap <leader>d <C-d>
 
-" Remap crtl-p to use leader key and p
+" Remap crtl-p to use leader key and f
 nmap <leader>f <C-p>
 
 " Open Rails schema.rb file in new tab
