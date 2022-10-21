@@ -1,6 +1,7 @@
 bindkey -v
 
 . /usr/local/opt/asdf/libexec/asdf.sh
+autoload -Uz compinit && compinit
 
 alias cdcode="cd ~/Desktop/code"
 alias cdwork="cd ~/Desktop/code/work"
