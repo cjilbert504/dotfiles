@@ -67,6 +67,9 @@ v () {
 alias bex="bundle exec"
 alias bi="bundle install"
 
+# Yarn related aliases
+alias yi="yarn install"
+
 # Rails related aliases
 alias bd="bin/dev"
 alias br="bin/rails"
