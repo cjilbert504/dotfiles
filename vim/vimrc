@@ -59,6 +59,9 @@ nmap <leader>f <C-p>
 " Open Rails schema.rb file in new tab
 nmap <leader>sc :tabe db/schema.rb<cr>
 
+" Remap ctrl o which goes to previous location. Handy for going up a directory
+nmap <leader>a <C-o>
+
 " Test runner mappings
 nmap <silent> <leader>t :TestNearest<CR>
 nmap <silent> <leader>tf :TestFile<CR>
