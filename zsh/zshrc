@@ -12,8 +12,9 @@ export EDITOR=vim
 . /usr/local/opt/asdf/libexec/asdf.sh
 autoload -Uz compinit && compinit
 
-alias cdcode="cd ~/code"
-alias cdwork="cd ~/code/work"
+alias cdc="cd ~/code"
+alias cdw="cd ~/code/work"
+alias cddf="cd ~/code/dotfiles"
 
 # Git related aliases
 alias ga="git add"
