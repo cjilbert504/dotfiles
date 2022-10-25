@@ -1,12 +1,19 @@
 bindkey -v
 
+autoload -Uz vcs_info
+zstyle ':vcs_info:git*' formats '%K{green}%F{black} %b %f%k'
+precmd() { vcs_info }
+
+setopt PROMPT_SUBST
+PROMPT='%K{blue}%F{black}${PWD/#$HOME/~} %f%k%K{green}%F{blue}'$'\ue0b0%f%k${vcs_info_msg_0_}%F{green}'$'\ue0b0%f '
+
 export EDITOR=vim
 
 . /usr/local/opt/asdf/libexec/asdf.sh
 autoload -Uz compinit && compinit
 
-alias cdcode="cd ~/Desktop/code"
-alias cdwork="cd ~/Desktop/code/work"
+alias cdcode="cd ~/code"
+alias cdwork="cd ~/code/work"
 
 # Git related aliases
 alias ga="git add"
