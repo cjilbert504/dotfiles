@@ -1,12 +1,12 @@
 bindkey -v
 
 autoload -Uz vcs_info
-zstyle ':vcs_info:git*' formats '%K{green}%F{black} 🌿 %b %f%k'
+zstyle ':vcs_info:git*' formats '%K{green}%F{black} %b %f%k'
 # '$'\ue0a0 github branch symbol
 precmd() { vcs_info }
 
 setopt PROMPT_SUBST
-PROMPT='%K{blue}%F{black}📍${PWD/#$HOME/~} %f%k%K{green}%F{blue}'$'\ue0b0%f%k${vcs_info_msg_0_}%F{green}'$'\ue0b0%f '
+PROMPT='%K{blue}%F{black} ${PWD/#$HOME/~} %f%k%K{green}%F{blue}'$'\ue0b0%f%k${vcs_info_msg_0_}%F{green}'$'\ue0b0%f '
 
 export EDITOR=vim
 
