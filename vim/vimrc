@@ -59,6 +59,13 @@ nmap <leader>so :source $MYVIMRC<cr>
 " Go into window navigation/management mode. Type space, w to trigger
 nmap <leader>w <C-w>
 
+" Make current window be a vertical split
+nmap <leader>wv <C-w>H
+
+" Make current window be a horizontal. 's' is used as a sideways nmemonic and
+" because '<leader>wh' is already used for moving cursor between windows
+nmap <leader>ws <C-w>K
+
 " Move cursor up or down respectively in chunks. Type space, u or space, d to
 " trigger
 nmap <leader>u <C-u>
