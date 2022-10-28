@@ -1,18 +1,33 @@
+# Enable Vim mode in zsh
 bindkey -v
 
+# Setup tab completion
+autoload -Uz compinit && compinit
+
+# Set Vim as editor of choice
+export EDITOR=vim
+
+. /usr/local/opt/asdf/libexec/asdf.sh
+
+#########################
+##### PROMPT CONFIG #####
+#########################
 autoload -Uz vcs_info
 zstyle ':vcs_info:git*' formats '%K{green}%F{black} %b %f%k'
-# '$'\ue0a0 github branch symbol
 precmd() { vcs_info }
 
 setopt PROMPT_SUBST
 PROMPT='%K{blue}%F{black} ${PWD/#$HOME/~} %f%k%K{green}%F{blue}'$'\ue0b0%f%k${vcs_info_msg_0_}%F{green}'$'\ue0b0%f '
 
-export EDITOR=vim
+###################
+##### Aliases #####
+###################
 
-. /usr/local/opt/asdf/libexec/asdf.sh
-autoload -Uz compinit && compinit
+# Bundler related aliases
+alias bex="bundle exec"
+alias bi="bundle install"
 
+# Dir navigation aliases
 alias cdc="cd ~/code"
 alias cdw="cd ~/code/work"
 alias cddf="cd ~/code/dotfiles"
@@ -29,63 +44,6 @@ alias gfix="vim -p +/HEAD \$(git diff --name-only | uniq)"
 alias gl="git log"
 alias gr="git remote -v"
 alias gs="git status"
-
-# Git related functions
-gac () {
-  if [[ $# > 1 ]]
-  then
-    git add $1 && git commit -m $2
-  else
-    git add . && git commit -m $1
-  fi
-}
-
-gp () {
-  CURRENT_BRANCH=$(git branch --show-current)
-  if [[ $1 ]]
-  then
-    git push $1 ${CURRENT_BRANCH}
-  else
-    git push origin ${CURRENT_BRANCH}
-  fi
-}
-
-gf () {
-  if [[ $# > 1 ]]
-  then
-    git fetch $@
-  else
-    git fetch origin $1
-  fi
-}
-
-gpl () {
-  if [[ $# > 1 ]]
-  then
-    git pull $@
-  else
-    git pull origin $1
-  fi
-}
-
-v () {
-  if [[ $# == 1 ]]
-  then
-    vim $1
-  elif [[ $# > 1 ]]
-  then
-    vim -O$@
-  else
-    vim .
-  fi
-}
-
-# Bundler related aliases
-alias bex="bundle exec"
-alias bi="bundle install"
-
-# Yarn related aliases
-alias yi="yarn install"
 
 # Rails related aliases
 alias bd="bin/dev"
@@ -122,3 +80,56 @@ alias reds="redis-server"
 
 # Standard related aliases
 alias sf="standardrb --fix"
+
+# Yarn related aliases
+alias yi="yarn install"
+
+#####################
+##### Functions #####
+#####################
+
+# Git related functions
+gac () {
+  if [[ $# > 1 ]]; then
+    git add $1 && git commit -m $2
+  else
+    git add . && git commit -m $1
+  fi
+}
+
+gf () {
+  if [[ $# > 1 ]]; then
+    git fetch $@
+  else
+    git fetch origin $1
+  fi
+}
+
+gp () {
+  CURRENT_BRANCH=$(git branch --show-current)
+  if [[ $1 ]]; then
+    git push $1 ${CURRENT_BRANCH}
+  else
+    git push origin ${CURRENT_BRANCH}
+  fi
+}
+
+gpl () {
+  if [[ $# > 1 ]]; then
+    git pull $@
+  else
+    git pull origin $1
+  fi
+}
+
+# Vim related functions
+v () {
+  if [[ $# == 1 ]]; then
+    vim $1
+  elif [[ $# > 1 ]]; then
+    vim -O $@
+  else
+    vim .
+  fi
+}
+
