@@ -7,6 +7,7 @@ endif
 syntax on
 
 call plug#begin()
+Plug 'ashfinal/vim-colors-violet'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'jiangmiao/auto-pairs'
 Plug 'morhetz/gruvbox'
@@ -36,6 +37,10 @@ if exists('+termguicolors')
   set termguicolors
 endif
 colorscheme spaceduck
+
+" violet config
+" set bg=light
+" colorscheme violet
 
 " vividchalk config
 " set bg=dark
