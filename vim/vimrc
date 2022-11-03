@@ -10,7 +10,6 @@ call plug#begin()
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'jiangmiao/auto-pairs'
 Plug 'morhetz/gruvbox'
-Plug 'NLKNguyen/papercolor-theme'
 Plug 'pineapplegiant/spaceduck', { 'branch': 'main' }
 Plug 'sheerun/vim-polyglot'
 Plug 'tpope/vim-commentary'
@@ -27,9 +26,8 @@ call plug#end()
 " let g:gruvbox_contrast_dark = 'hard'
 " autocmd vimenter * ++nested colorscheme gruvbox
 
-" papercolor config
-" set background=dark
-" colorscheme PaperColor
+" spacecamp config
+" colorscheme spacecamp
 
 " spaceduck config
 if exists('+termguicolors')
@@ -37,7 +35,6 @@ if exists('+termguicolors')
   let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
   set termguicolors
 endif
-
 colorscheme spaceduck
 
 " vividchalk config
