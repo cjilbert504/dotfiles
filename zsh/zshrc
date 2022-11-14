@@ -24,7 +24,7 @@ PROMPT='%K{blue}%F{black} ${PWD/#$HOME/~} %f%k%K{green}%F{blue}'$'\ue0b0%f%k${vc
 ###################
 
 # Bundler related aliases
-alias bex="bundle exec"
+alias be="bundle exec"
 alias bi="bundle install"
 
 # Dir navigation aliases
