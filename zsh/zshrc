@@ -85,6 +85,10 @@ alias reds="redis-server"
 # Standard related aliases
 alias sf="standardrb --fix"
 
+# Tmux related aliases
+alias tm="tmux"
+alias tmls="tmux list-sessions"
+
 # Yarn related aliases
 alias yi="yarn install"
 
