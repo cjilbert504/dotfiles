@@ -29,7 +29,6 @@ alias bi="bundle install"
 
 # Dir navigation aliases
 alias cdc="cd ~/code"
-alias cdw="cd ~/code/work"
 alias cddf="cd ~/code/dotfiles"
 
 # Git related aliases
