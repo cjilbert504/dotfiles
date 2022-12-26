@@ -20,23 +20,24 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-vividchalk'
 Plug 'vim-test/vim-test'
+Plug 'veloce/vim-aldmeris'
 call plug#end()
 
-" gruvbox config
-" set bg=dark
-" let g:gruvbox_contrast_dark = 'hard'
-" autocmd vimenter * ++nested colorscheme gruvbox
+" aldmeris config
+" colorscheme aldmeris
 
-" spacecamp config
-" colorscheme spacecamp
+" gruvbox config
+set bg=dark
+let g:gruvbox_contrast_dark = 'hard'
+autocmd vimenter * ++nested colorscheme gruvbox
 
 " spaceduck config
-if exists('+termguicolors')
-  let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
-  let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
-  set termguicolors
-endif
-colorscheme spaceduck
+" if exists('+termguicolors')
+"   let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+"   let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+"   set termguicolors
+" endif
+" colorscheme spaceduck
 
 " violet config
 " set bg=light
