@@ -13,6 +13,8 @@ call plug#begin()
 Plug 'cormacrelf/vim-colors-github'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'jiangmiao/auto-pairs'
+Plug 'ku-s-h/summerfruit256.vim'
+Plug 'mattn/emmet-vim'
 Plug 'morhetz/gruvbox'
 Plug 'pineapplegiant/spaceduck', { 'branch': 'main' }
 Plug 'sheerun/vim-polyglot'
@@ -21,8 +23,10 @@ Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-rails'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
+Plug 'vim-ruby/vim-ruby'
 Plug 'vim-test/vim-test'
 Plug 'veloce/vim-aldmeris'
+Plug 'github/copilot.vim'
 call plug#end()
 
 " vim-colors-github config
@@ -41,6 +45,9 @@ autocmd vimenter * ++nested colorscheme gruvbox
 "   set termguicolors
 " endif
 " colorscheme spaceduck
+
+" summerfruit256 config
+" colorscheme summerfruit256
 
 " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
 let g:ctrlp_user_command = 'ag %s -l --nocolor --hidden -g ""'
@@ -74,8 +81,14 @@ nmap <leader>d <C-d>
 " Remap crtl-p to use leader key and f
 nmap <leader>f <C-p>
 
+" Remap code comment command
+nmap <leader>/ gcc
+
 " Open Rails schema.rb file in new tab
 nmap <leader>sc :tabe db/schema.rb<cr>
+
+" Open Rails config/routes.rb file in new tab
+nmap <leader>ro :tabe config/routes.rb<cr>
 
 " Remap ctrl o which goes to previous location. Handy for going up a directory
 nmap <leader>a <C-o>
@@ -86,6 +99,10 @@ nmap <silent> <leader>tf :TestFile<CR>
 nmap <silent> <leader>ta :TestSuite<CR>
 nmap <silent> <leader>tl :TestLast<CR>
 nmap <silent> <leader>g :TestVisit<CR>
+
+nmap <leader>c :Econtroller<cr>
+nmap <leader>m :Emodel<cr>
+nmap <leader>v :Eview<cr>
 
 set relativenumber number
 set t_Co=256

@@ -32,7 +32,7 @@ alias cdc="cd ~/code"
 alias cddf="cd ~/code/dotfiles"
 
 # Git related aliases
-alias ga="git add"
+alias ga="git add -p"
 alias gb="git branch"
 alias gbd="git branch -D"
 alias gbn="git checkout -b"
@@ -49,6 +49,7 @@ alias bd="bin/dev"
 alias br="bin/rails"
 alias rc="bin/rails console"
 alias rcl="bin/rails tmp:clear && bin/rails log:clear"
+alias rclt="RAILS_ENV=test bin/rails tmp:clear && RAILS_ENV=test bin/rails log:clear"
 alias rcs="bin/rails console -s"
 alias rdbcon="bin/rails dbconsole"
 alias rdbc="bin/rails db:create"
@@ -60,6 +61,7 @@ alias rdbrb="bin/rails db:rollback"
 alias rdbs="bin/rails db:seed"
 alias rg="bin/rails g"
 alias rgcon="bin/rails g controller"
+alias rgchan="bin/rails g channel"
 alias rgit="bin/rails g integration_test"
 alias rgjob="bin/rails g job"
 alias rgmod="bin/rails g model"
@@ -83,6 +85,7 @@ alias reds="redis-server"
 
 # Standard related aliases
 alias sf="standardrb --fix"
+alias srb="standardrb"
 
 # Tmux related aliases
 alias tm="tmux"
@@ -90,6 +93,10 @@ alias tmls="tmux list-sessions"
 
 # Yarn related aliases
 alias yi="yarn install"
+
+# Shell related aliases
+alias h="history"
+alias ls="ls -lahF --color"
 
 #####################
 ##### Functions #####
@@ -140,3 +147,4 @@ v () {
   fi
 }
 
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
