@@ -109,6 +109,9 @@ alias reds="redis-server"
 alias sf="standardrb --fix"
 alias srb="standardrb"
 
+# Lint
+alias lint="standardrb --fix && erblint --lint-all -a"
+
 # Tmux related aliases
 alias tm="tmux"
 alias tmls="tmux list-sessions"
@@ -138,6 +141,7 @@ gac () {
 
 gf () {
   CURRENT_BRANCH=$(git branch --show-current)
+
   if [[ $# > 1 ]]; then
     git fetch $@
   elif [[ $# == 1 ]]; then
@@ -160,10 +164,14 @@ gp () {
 }
 
 gpl () {
-  if [[ $# > 1 ]]; then
+  CURRENT_BRANCH=$(git branch --show-current)
+
+  if [[ $# == 1 ]]; then
+    git pull $1 ${CURRENT_BRANCH}
+  elif [[ $# > 1 ]]; then
     git pull $@
   else
-    git pull origin $1
+    git pull origin ${CURRENT_BRANCH}
   fi
 }
 
@@ -183,3 +191,4 @@ rn () {
 }
 
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+export PATH="/usr/local/opt/postgresql@16/bin:$PATH"

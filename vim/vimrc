@@ -25,11 +25,11 @@ Plug 'vim-ruby/vim-ruby'
 Plug 'vim-test/vim-test'
 call plug#end()
 
-" set background=light
-" colorscheme solarized
+set background=light
+colorscheme solarized
 
-set background=dark
-colorscheme retrobox
+" set background=dark
+" colorscheme retrobox
 
 " orbital was a dark theme I liked, just a self reminder
 
