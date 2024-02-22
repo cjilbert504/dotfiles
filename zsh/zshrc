@@ -7,8 +7,6 @@ autoload -Uz compinit && compinit
 # Set Vim as editor of choice
 export EDITOR=vim
 
-. /usr/local/opt/asdf/libexec/asdf.sh
-
 #########################
 ##### PROMPT CONFIG #####
 #########################
@@ -112,10 +110,6 @@ alias srb="standardrb"
 # Lint
 alias lint="standardrb --fix && erblint --lint-all -a"
 
-# Tmux related aliases
-alias tm="tmux"
-alias tmls="tmux list-sessions"
-
 # Yarn related aliases
 alias yi="yarn install"
 
@@ -191,4 +185,8 @@ rn () {
 }
 
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
-export PATH="/usr/local/opt/postgresql@16/bin:$PATH"
+export PATH="/opt/homebrew/opt/postgresql@16/bin:$PATH"
+
+. /opt/homebrew/opt/asdf/libexec/asdf.sh
+. "$HOME/.asdf/asdf.sh"
+. "$HOME/.asdf/completions/asdf.bash"
