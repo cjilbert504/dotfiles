@@ -123,3 +123,4 @@ set incsearch
 nnoremap <leader>cc :set colorcolumn=100<cr>
 nnoremap <leader>ncc :set colorcolumn-=100<cr>
 set rtp+=/opt/homebrew/opt/fzf
+set grepprg=rg\ --vimgrep\ --smart-case\ --follow
