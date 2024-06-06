@@ -8,9 +8,11 @@ syntax on
 
 call plug#begin()
 Plug 'altercation/vim-colors-solarized'
-Plug 'ctrlpvim/ctrlp.vim'
 Plug 'jiangmiao/auto-pairs'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
 Plug 'mattn/emmet-vim'
+Plug 'preservim/nerdtree'
 Plug 'sheerun/vim-polyglot'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-endwise'
@@ -24,24 +26,42 @@ call plug#end()
 set background=light
 colorscheme solarized
 
-" set background=dark
-" colorscheme retrobox
-
-" orbital was a dark theme I liked, just a self reminder
-
-" Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
-let g:ctrlp_user_command = 'ag %s -l --nocolor --hidden -g ""'
-
-" ag is fast enough that CtrlP doesn't need to cache
-let g:ctrlp_use_caching = 0
+" Set NERDTree to appear on the right side
+let g:NERDTreeWinPos = "right"
 
 let mapleader = "\<space>"
+
+" nnoremap <leader>l :NERDTreeToggle<CR>
+nmap <leader>o :NERDTreeToggle<CR>
+
+" Remap buffer navigation
+nmap <leader>bs :buffers<cr>
+nmap <leader>b :buffer
+nmap <leader>bn :bnext<cr>
+nmap <leader>bp :bprevious<cr>
+nmap <leader>bd :bdelete
+
+" Easily suspend vim so that the terminal can be accessed quickly. Return to
+" vim by pressing 'fg'
+nmap <leader>z :suspend<cr>
 
 " Edit your vimrc in a new tab. Type space, v, r in sequence to trigger
 nmap <leader>vrc :tabe $MYVIMRC<cr>
 
 " Source (reload) your vimrc. Type space, s, o in sequence to trigger
 nmap <leader>so :source $MYVIMRC<cr>
+
+" Opens a new vertical split
+nmap <leader>nv <C-w>v
+
+" Opens a new horizontal split
+nmap <leader>ns <C-w>s
+
+" Closes a window
+nmap <leader>cw <C-w>c
+
+" Makes the current window the only one on screen and closes other windows
+nmap <leader>co <C-w>o
 
 " Go into window navigation/management mode. Type space, w to trigger
 nmap <leader>w <C-w>
@@ -59,7 +79,10 @@ nmap <leader>u <C-u>
 nmap <leader>d <C-d>
 
 " Remap crtl-p to use leader key and f
-nmap <leader>f <C-p>
+" nmap <leader>f <C-p>
+
+" Remap file finding for fzf
+nnoremap <silent> <leader>f :Files<CR>
 
 " Remap code comment command
 nmap <leader>/ gcc
@@ -69,9 +92,6 @@ nmap <leader>sc :tabe db/schema.rb<cr>
 
 " Open Rails config/routes.rb file in new tab
 nmap <leader>ro :tabe config/routes.rb<cr>
-
-" Remap ctrl o which goes to previous location. Handy for going up a directory
-nmap <leader>a <C-o>
 
 " Test runner mappings
 nmap <silent> <leader>t :TestNearest<CR>
@@ -88,6 +108,7 @@ set relativenumber number
 set t_Co=256
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 set nocompatible
+filetype plugin on
 set hidden
 set tabstop=2 softtabstop=2
 set shiftwidth=2
@@ -99,5 +120,6 @@ set smartcase
 set noswapfile
 set nobackup
 set incsearch
-nnoremap <leader>cc :set colorcolumn=80<cr>
-nnoremap <leader>ncc :set colorcolumn-=80<cr>
+nnoremap <leader>cc :set colorcolumn=100<cr>
+nnoremap <leader>ncc :set colorcolumn-=100<cr>
+set rtp+=/opt/homebrew/opt/fzf
