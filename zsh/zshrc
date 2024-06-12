@@ -117,6 +117,9 @@ alias yi="yarn install"
 alias h="history"
 alias ls="ls -lahF --color"
 
+# Overmind related aliases
+alias ocw="overmind connect web"
+
 # VSCode related aliases
 alias c="code ."
 
