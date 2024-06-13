@@ -28,6 +28,10 @@ colorscheme solarized
 
 " Set NERDTree to appear on the right side
 let g:NERDTreeWinPos = "right"
+let NERDTreeShowHidden=1
+
+" Allow fzf to show hidden files in search results
+let $FZF_DEFAULT_COMMAND='rg --hidden -l ""'
 
 let mapleader = "\<space>"
 
