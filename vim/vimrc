@@ -38,6 +38,9 @@ let mapleader = "\<space>"
 " nnoremap <leader>l :NERDTreeToggle<CR>
 nmap <leader>o :NERDTreeToggle<CR>
 
+" Remap :Rg for seaching for words in all files
+nmap <leader>r :Rg<cr>
+
 " Remap buffer navigation
 nmap <leader>bs :buffers<cr>
 nmap <leader>b :buffer
