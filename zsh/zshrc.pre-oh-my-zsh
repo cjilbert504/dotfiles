@@ -1,0 +1,202 @@
+# Enable Vim mode in zsh
+bindkey -v
+
+# Setup tab completion
+autoload -Uz compinit && compinit
+
+# Set Vim as editor of choice
+export EDITOR=vim
+
+#########################
+##### PROMPT CONFIG #####
+#########################
+autoload -Uz vcs_info
+zstyle ':vcs_info:git*' formats '%K{118}%F{black} %b %f%k'
+precmd() { vcs_info }
+
+setopt PROMPT_SUBST
+
+# LIGHT MODE PROMPT
+PROMPT='%K{027}%F{231} %1d %f%k%K{118}%F{027}'$'\ue0b0%f%k${vcs_info_msg_0_}%F{118}'$'\ue0b0%f '
+
+# DARK MODE PROMPT
+# PROMPT='%K{blue}%F{black} ${PWD/#$HOME/~} %f%k%K{green}%F{blue}'$'\ue0b0%f%k${vcs_info_msg_0_}%F{green}'$'\ue0b0%f '
+
+###################
+##### Aliases #####
+###################
+
+# Bundler related aliases
+alias ba="bundle add"
+alias be="bundle exec"
+alias bi="bundle install"
+
+# Dir navigation aliases
+alias cdc="cd ~/code"
+alias cddf="cd ~/code/dotfiles"
+
+# Git related aliases
+alias ga="git add"
+alias gap="git add -p"
+alias gb="git branch"
+alias gbd="git branch -D"
+alias gbn="git checkout -b"
+alias gc="git commit -m"
+alias gco="git checkout"
+alias gd="git diff"
+alias gfix="vim -p +/HEAD \$(git diff --name-only | uniq)"
+alias gl="git log"
+alias gr="git remote -v"
+alias gs="git status"
+
+# Rails related aliases
+alias bd="bin/dev"
+alias br="bin/rails"
+alias rc="bin/rails console"
+alias rce="bin/rails credentials:edit -e"
+alias rcl="bin/rails tmp:clear && bin/rails log:clear"
+alias rclt="RAILS_ENV=test bin/rails tmp:clear && RAILS_ENV=test bin/rails log:clear"
+alias rcs="bin/rails console -s"
+alias rdbcon="bin/rails dbconsole"
+alias rdbc="bin/rails db:create"
+alias rdbfl="bin/rails db:fixtures:load"
+alias rdbm="bin/rails db:migrate"
+alias rdbms="bin/rails db:migrate:status"
+alias rdbrs="bin/rails db:reset"
+alias rdbrb="bin/rails db:rollback"
+alias rdbs="bin/rails db:seed"
+alias rd="bin/rails d"
+alias rdcon="bin/rails d controller"
+alias rdchan="bin/rails d channel"
+alias rdit="bin/rails d integration_test"
+alias rdjob="bin/rails d job"
+alias rdmail="bin/rails d mailer"
+alias rdmod="bin/rails d model"
+alias rdmt="bin/rails d test_unit:model"
+alias rdmig="bin/rails d migration"
+alias rdres="bin/rails d resource"
+alias rdscaf="bin/rails d scaffold"
+alias rdst="bin/rails d system_test"
+alias rdstim="bin/rails d stimulus"
+alias rg="bin/rails g"
+alias rgcon="bin/rails g controller"
+alias rgchan="bin/rails g channel"
+alias rgit="bin/rails g integration_test"
+alias rgjob="bin/rails g job"
+alias rgmail="bin/rails g mailer"
+alias rgmod="bin/rails g model"
+alias rgmt="bin/rails g test_unit:model"
+alias rgmig="bin/rails g migration"
+alias rgres="bin/rails g resource"
+alias rgscaf="bin/rails g scaffold"
+alias rgst="bin/rails g system_test"
+alias rgstim="bin/rails g stimulus"
+alias rr="bin/rails routes -g"
+alias rs="bin/rails server"
+alias rt="bin/rails test"
+alias rta="bin/rails test:all"
+alias rtc="bin/rails test:controllers"
+alias rti="bin/rails test:integration"
+alias rtm="bin/rails test:models"
+alias rts="bin/rails test:system"
+
+# Redis related aliases
+alias reds="redis-server"
+
+# Standard related aliases
+alias sf="standardrb --fix"
+alias srb="standardrb"
+
+# Lint
+alias lint="standardrb --fix && erblint --lint-all -a"
+
+# Yarn related aliases
+alias yi="yarn install"
+
+# Shell related aliases
+alias h="history"
+alias ls="ls -lahF --color"
+
+# Overmind related aliases
+alias ocw="overmind connect web"
+
+# VSCode related aliases
+alias c="code ."
+
+#####################
+##### Functions #####
+#####################
+
+# Git related functions
+gac () {
+  if [[ $# > 1 ]]; then
+    git add $1 && git commit -m $2
+  else
+    git add . && git commit -m $1
+  fi
+}
+
+gf () {
+  CURRENT_BRANCH=$(git branch --show-current)
+
+  if [[ $# > 1 ]]; then
+    git fetch $@
+  elif [[ $# == 1 ]]; then
+    git fetch $1 ${CURRENT_BRANCH}
+  else
+    git fetch origin ${CURRENT_BRANCH}
+  fi
+}
+
+gp () {
+  CURRENT_BRANCH=$(git branch --show-current)
+
+  if [[ $# > 1 ]]; then
+    git push $@
+  elif [[ $# == 1 ]]; then
+    git push $1 ${CURRENT_BRANCH}
+  else
+    git push origin ${CURRENT_BRANCH}
+  fi
+}
+
+gpl () {
+  CURRENT_BRANCH=$(git branch --show-current)
+
+  if [[ $# == 1 ]]; then
+    git pull $1 ${CURRENT_BRANCH}
+  elif [[ $# > 1 ]]; then
+    git pull $@
+  else
+    git pull origin ${CURRENT_BRANCH}
+  fi
+}
+
+# Vim related functions
+v () {
+  if [[ $# == 1 ]]; then
+    vim $1
+  elif [[ $# > 1 ]]; then
+    vim -O $@
+  else
+    vim .
+  fi
+}
+
+rn () {
+  rails new $1 -d postgresql -j esbuild -c tailwind && cd $1
+}
+
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+export PATH="/opt/homebrew/opt/postgresql@16/bin:$PATH"
+
+. /opt/homebrew/opt/asdf/libexec/asdf.sh
+. "$HOME/.asdf/asdf.sh"
+. "$HOME/.asdf/completions/asdf.bash"
+
+source <(fzf --zsh)
+
+if type rg &> /dev/null; then
+  export FZF_DEFAULT_COMMAND='rg --files'
+  export FZF_DEFAULT_OPTS='-m'
+fi
