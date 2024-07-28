@@ -5,7 +5,7 @@
 return {
   -- NOTE: Plugins can be added with a link (or for a github repo: 'owner/repo' link).
 
-  'jiangmiao/auto-pairs',
+  -- 'jiangmiao/auto-pairs',
   'mattn/emmet-vim',
   'preservim/nerdtree',
   -- 'sheerun/vim-polyglot',
