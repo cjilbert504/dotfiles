@@ -39,6 +39,7 @@ return {
         'pyright',
         'ruby_lsp',
         'solargraph',
+        'stimulus_ls',
       },
     }
 

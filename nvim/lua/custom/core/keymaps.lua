@@ -5,6 +5,13 @@
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
+-- Remap buffer navigation
+vim.keymap.set('n', '<leader>bs', ' <cmd>buffers<cr>')
+vim.keymap.set('n', '<leader>b', ' <cmd>buffer<cr>')
+vim.keymap.set('n', '<leader>bn', ' <cmd>bnext<cr>')
+vim.keymap.set('n', '<leader>bp', ' <cmd>bprevious<cr>')
+vim.keymap.set('n', '<leader>bd', ' <cmd>bdelete<cr>')
+
 -- Window management
 vim.keymap.set('n', '<leader>sv', '<C-w>v', { desc = 'Split window vertically' })
 vim.keymap.set('n', '<leader>sh', '<C-w>s', { desc = 'Split window horizontally' })
