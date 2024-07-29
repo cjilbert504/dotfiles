@@ -86,22 +86,28 @@ return {
         }
       end,
       ["ruby_lsp"] = function()
-        -- configure ruby language server
         lspconfig["ruby_lsp"].setup {
           init_options = {
-            formatter = {
-              rubocop = {
-                lint = false,
-              },
+            enabledFeatures = {
+              diagnostics = false,
+              formatting = false,
+            },
+          },
+        }
+      end,
+      ["solargraph"] = function()
+        lspconfig["solargraph"].setup {
+          settings = {
+            solargraph = {
+              diagnostics = false,
             },
           },
         }
       end,
       ["emmet_ls"] = function()
-        -- configure emmet language server
         lspconfig["emmet_ls"].setup {
           capabilities = capabilities,
-          filetypes = { "html", "typescriptreact", "javascriptreact", "css", "sass", "scss", "less" },
+          filetypes = { "html", "eruby", "typescriptreact", "javascriptreact", "css", "sass", "scss", "less" },
         }
       end,
       ["lua_ls"] = function()
