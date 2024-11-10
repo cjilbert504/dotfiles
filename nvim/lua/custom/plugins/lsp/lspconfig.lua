@@ -95,15 +95,15 @@ return {
           },
         }
       end,
-      ["solargraph"] = function()
-        lspconfig["solargraph"].setup {
-          settings = {
-            solargraph = {
-              diagnostics = false,
-            },
-          },
-        }
-      end,
+      -- ["solargraph"] = function()
+      --   lspconfig["solargraph"].setup {
+      --     settings = {
+      --       solargraph = {
+      --         diagnostics = false,
+      --       },
+      --     },
+      --   }
+      -- end,
       ["emmet_ls"] = function()
         lspconfig["emmet_ls"].setup {
           capabilities = capabilities,

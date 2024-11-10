@@ -27,7 +27,7 @@ return {
     mason_lspconfig.setup {
       -- list of servers for mason to install
       ensure_installed = {
-        "tsserver",
+        -- "tsserver",
         "html",
         "cssls",
         "tailwindcss",
@@ -38,7 +38,7 @@ return {
         "prismals",
         "pyright",
         "ruby_lsp",
-        "solargraph",
+        -- "solargraph",
         "stimulus_ls",
       },
     }
@@ -51,7 +51,7 @@ return {
         "black", -- python formatter
         "pylint",
         "eslint_d",
-        "standardrb",
+        -- "tandardrb",
       },
     }
   end,
